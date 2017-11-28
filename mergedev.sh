@@ -8,8 +8,8 @@ DEV_DIR="dev_directory_name"
 ADMIN_DIR="admin_directory_name"
 WORKING_DIR="/var/www/"
 #to add a cidr range, do so in the following format: 0.0.0.0\/0 using the \ to escape
-IP_WHITELIST0="00.00.00.00"
-IP_WHITELIST1="00.00.00.00"
+IP_WHITELIST0="00.00.00.00" #primary ip allowed; rest denied (see sample .htaccess)
+IP_WHITELIST1="00.00.00.00" #secondary ips, added by the script for whitelisting in test environment, but not dev
 IP_WHITELIST2="00.00.00.00"
 IP_WHITELIST3="00.00.00.00"
 IP_WHITELIST4="00.00.00.00"
