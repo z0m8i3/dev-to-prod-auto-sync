@@ -1,5 +1,5 @@
 # Development to production/testing auto sync via command line
-Quick & dirty script to sync dev & testing environments, similarly to rsync; but also updating config & htaccess files all in one swoop.
+Quick & dirty script to sync dev & testing environments, similarly to rsync; but also updating config, htaccess, database backup & purging all in one swoop.
 
 The script is hardcoded for Apache/.htaccess usage; if using nginx, modify accordingly.
 Also tested & confirmed to work in Mac environments, but will require some tweaking. (Linux distros are better, anyway)
