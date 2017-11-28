@@ -1,0 +1,10 @@
+# prevent direct access to files
+# apache 2.4+ configuration
+# IP_WHITELIST0 is your dev ip (office, for example) and the following ips in mergedev config are testing ips/ranges (mobile networks, etc)
+#
+# the point of filtering out everyone but you from the dev site is a) testers don't need access to the dev enviroment, b) prevents someone from looking at the wrong directory and pointing out things that aren't ready for testing yet
+
+<FilesMatch "(?i)((\.php|\.md|\.tpl|\.log\.ini|\.log|(?<!robots)\.txt))">
+  Require ip 0.0.0.0 #this is IP_WHITELIST0 in mergedev.sh config [they both should be the same ip]
+  Require all denied
+</FilesMatch>
