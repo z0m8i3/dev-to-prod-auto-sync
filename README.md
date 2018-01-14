@@ -1,11 +1,10 @@
-# Development to production/testing auto sync via command line
-Quick & dirty script to sync dev & testing environments, similarly to rsync; but also updating config, htaccess, database backup & purging all in one swoop.
+# Auto sync of development & production databases and directories
+Total rewrite for 2018 -- first run of the script via terminal will guide you through creating a config file for both directory and database backups.  No need to manually configure anything.
 
-The script is hardcoded for Apache/.htaccess usage; if using nginx, modify accordingly.
-Also tested & confirmed to work in Mac environments, but will require some tweaking. (Linux distros are better, anyway)
+## Automate backups
+Add a cron to sync backups: `30 1 * * * /path/to/mergedev.sh > /dev/null`
 
-## Configure your script
-Modify the configuration variables at the top of mergedev.sh to set your appropriate filepaths & database credentials
+Note: It is not recommended to blackhole stderr for this; if something goes awry with permissions, you'll want to be notified.
 
 ## Set an alias if you'd like to trigger the script manually, opposed to predetermined times with cron
 `nano ~/.bashrc`
@@ -21,3 +20,11 @@ Update your config without requiring logout:
 All set.
 
 To trigger the script, run `mergedev`
+
+
+### Some considerations
+It is recommended to run this script in a non-public directory.  Wherever it is first ran, it will generate a .cnf file in that directory.
+
+Also not recommended to use the root database user; ideally, you'll have a user specifically for backups, granted only the required permissions to perform the backup/dump/inserts.
+
+Only used for local database backups; has not been tested for remote.
