@@ -138,7 +138,7 @@ if [ -f $CONF_FILE ];
 			then
 				echo "Assuming / is a typo.."
 				echo "Re-run this script and try again.  Exiting.."
-				rm .mergedev.cnf
+				rm .htmergedev.cnf
 				exit 0
 		fi
 
@@ -151,7 +151,7 @@ if [ -f $CONF_FILE ];
 			then
 				echo "Assuming / is a typo.."
 				echo "Re-run this script and try again, in a less disaster-in-the-making directory.  Exiting.."
-				rm .mergedev.cnf
+				rm .htmergedev.cnf
 				exit 0
 		fi
 
